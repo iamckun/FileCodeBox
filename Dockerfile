@@ -1,6 +1,6 @@
 FROM python:3.9.5-slim-buster
-LABEL author="Lan"
-LABEL email="xzu@live.com"
+LABEL author="Ckun"
+LABEL email="iamckun@163.com"
 
 # 将当前目录下的文件复制到容器的 /app 目录
 COPY . /app
@@ -12,7 +12,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shangh
 WORKDIR /app
 
 # 删除不必要的目录，减少镜像体积
-RUN rm -rf docs fcb-fronted
+RUN rm -rf docs fcb-fronted data
 
 # 安装依赖
 RUN pip install -r requirements.txt

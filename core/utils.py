@@ -57,7 +57,7 @@ async def get_file_url(code: str):
     :param code:
     :return:
     """
-    return f"/share/download?key={await get_select_token(code)}&code={code}"
+    return f"/api/share/file/share/download?key={await get_select_token(code)}&code={code}"
 
 
 async def max_save_times_desc(max_save_seconds: int):

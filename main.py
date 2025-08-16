@@ -35,7 +35,7 @@ async def lifespan(app: FastAPI):
     # 加载配置
     await load_config()
     app.mount(
-        "/assets",
+        "/share/file/assets",
         StaticFiles(directory=f"./{settings.themesSelect}/assets"),
         name="assets",
     )
@@ -102,7 +102,7 @@ app.include_router(admin_api)
 
 
 @app.exception_handler(404)
-@app.get("/")
+@app.get("/share/file")
 async def index(request=None, exc=None):
     return HTMLResponse(
         content=open(
@@ -120,12 +120,12 @@ async def index(request=None, exc=None):
     )
 
 
-@app.get("/robots.txt")
+@app.get("/api/share/robots.txt")
 async def robots():
     return HTMLResponse(content=settings.robotsText, media_type="text/plain")
 
 
-@app.post("/")
+@app.post("/api/share/file/")
 async def get_config():
     return APIResponse(
         detail={

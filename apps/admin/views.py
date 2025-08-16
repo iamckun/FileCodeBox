@@ -18,7 +18,7 @@ from apps.base.models import FileCodes, KeyValue
 from apps.admin.dependencies import create_token
 from core.settings import settings
 
-admin_api = APIRouter(prefix="/admin", tags=["管理"])
+admin_api = APIRouter(prefix="/api/share/file/admin", tags=["管理"])
 
 
 @admin_api.post("/login")

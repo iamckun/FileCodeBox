@@ -13,7 +13,7 @@ from core.settings import settings
 from core.storage import storages, FileStorageInterface
 from core.utils import get_select_token
 
-share_api = APIRouter(prefix="/share", tags=["分享"])
+share_api = APIRouter(prefix="/api/share/file/share", tags=["分享"])
 
 
 async def validate_file_size(file: UploadFile, max_size: int):
@@ -151,7 +151,7 @@ async def download_file(key: str, code: str, ip: str = Depends(ip_limit["error"]
     )
 
 
-chunk_api = APIRouter(prefix="/chunk", tags=["切片"])
+chunk_api = APIRouter(prefix="/api/share/file/chunk", tags=["切片"])
 
 
 @chunk_api.post("/upload/init/", dependencies=[Depends(share_required_login)])
